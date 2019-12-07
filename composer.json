@@ -1,0 +1,21 @@
+{
+  "name": "sector7g/module-security-headers",
+  "description": "Allow setting or changing headers related to security and CORS",
+  "type": "magento2-module",
+  "keywords": [],
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Brett P.",
+      "email": "bap14@users.noreply.github.com",
+      "role": "Owner"
+    }
+  ],
+  "require": {
+    "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0"
+  },
+  "autoload": {
+    "files": [ "src/registration.php" ],
+    "psr-4": { "Sector7G\\SecurityHeaders\\": "src/" }
+  }
+}
