@@ -1,0 +1,27 @@
+<?xml version="1.0" charset="utf-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sector7g_securityheaders_header" engine="innodb" resource="default" comment="Additional headers to send on requests">
+        <column name="header_id" xsi:type="int" identity="true" padding="10" unsigned="true" nullable="false" />
+        <column name="store_id" xsi:type="smallint" identity="false" padding="5" nullable="false" unsigned="true" />
+        <column name="name" xsi:type="text" length="8190" nullable="false" />
+        <column name="value" xsi:type="text" length="32768" nullable="false" />
+        <column name="is_active" xsi:type="boolean" nullable="false" default="true" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="header_id" />
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="SECTOR7G_SECURITY_HEADER_STORE_ID_STORE_STORE_ID"
+                    table="sector7g_security_headers"
+                    column="store_id"
+                    referenceTable="store"
+                    referenceColumn="store_id"
+                    onDelete="CASCADE" />
+        <index referenceId="SECTOR7G_SECURITY_HEADER_NAME" indexType="fulltext">
+            <column name="name" />
+        </index>
+        <index referenceId="SECTOR7G_SECURITY_HEADER_VALUE" indexType="fulltext">
+            <column name="value" />
+        </index>
+    </table>
+</schema>
